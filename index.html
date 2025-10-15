@@ -212,3 +212,122 @@
                                 <option value="21:00">21:00</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="guests">Número de Pessoas</label>
+                            <select id="guests" name="number_guests" required>
+                                <option value="1">1 pessoa</option>
+                                <option value="2">2 pessoas</option>
+                                <option value="3">3 pessoas</option>
+                                <option value="4">4 pessoas</option>
+                                <option value="5">5 pessoas</option>
+                                <option value="6">6 pessoas</option>
+                                <option value="7">7 pessoas</option>
+                                <option value="8">8 ou mais pessoas</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Observações Especiais</label>
+                            <textarea id="message" name="user_message" rows="4" placeholder="Alergias, comemorações especiais, necessidades específicas..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                Confirmo que li e aceito os termos de reserva.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Confirmar Reserva</button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Barra lateral com informações extras -->
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3 class="widget-title">Horário de Funcionamento</h3>
+                    <ul>
+                        <li><strong>Segunda a Sexta:</strong> 11h às 15h | 18h às 23h</li>
+                        <li><strong>Sábados:</strong> 11h às 16h | 18h às 00h</li>
+                        <li><strong>Domingos:</strong> 11h às 17h</li>
+                        <li><strong>Feriados:</strong> 12h às 16h</li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Promoções da Semana</h3>
+                    <ul>
+                        <li><a href="#">🍕 Segunda da Pizza - 30% off</a></li>
+                        <li><a href="#">🍝 Quarta da Massa - Rodízio especial</a></li>
+                        <li><a href="#">🍷 Sexta do Vinho - Harmonização grátis</a></li>
+                        <li><a href="#">👨‍👩‍👧‍👦 Domingo em Família - Kids free</a></li>
+                    </ul>
+                </div>
+                
+                <div class="widget">
+                    <h3 class="widget-title">Categorias</h3>
+                    <div class="tags-container">
+                        <!-- Tags que mostram as categorias do cardápio -->
+                        <span class="tag">PIZZAS</span>
+                        <span class="tag">MASSAS</span>
+                        <span class="tag">CARNES</span>
+                        <span class="tag">PEIXES</span>
+                        <span class="tag">SOBREMESAS</span>
+                        <span class="tag">VINHOS</span>
+                        <span class="tag">ENTRADAS</span>
+                        <span class="tag">ESPECIAIS</span>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Delivery</h3>
+                    <p>🍽️ <strong>Entregamos em toda região!</strong><br>
+                    Pedidos pelo telefone:<br>
+                    <strong>(11) 3456-7890</strong><br>
+                    ou via WhatsApp:<br>
+                    <strong>(11) 98765-4321</strong></p>
+                </div>
+            </aside>
+        </div>
+    </main>
+    
+
+    <!-- Rodapé do site com informações de contato e links -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h4>Sapore & Memoria</h4>
+                <p>Rua das Flores, 123 - Centro<br>
+                São Paulo - SP<br>
+                CEP: 01234-567<br>
+                Tel: (11) 3456-7890</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Reservas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Nos Siga</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#">Ifood</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sapore & Memoria - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Aqui linkamos o arquivo JavaScript que adiciona interatividade ao site -->
+    <script src="script.js"></script>
+</body>
+</html>
