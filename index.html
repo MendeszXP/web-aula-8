@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Aqui é a parte de configuração do site, tipo a "cabeça" da página -->
+    <meta charset="UTF-8"> <!-- Isso aqui é pra garantir que os acentos e caracteres especiais apareçam certinho -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Isso faz o site ficar responsivo, adaptando ao celular -->
+    <title>Sapore & Memoria - Restaurante Italiano</title> <!-- Esse é o título que aparece na aba do navegador -->
+    
+    <!-- Essas meta tags são importantes pro Google entender do que se trata o site -->
+    <meta name="description" content="Restaurante Sapore & Memoria - Autêntica cozinha ítalo-brasileira desde 1983. Sabores que evocam nostalgia e momentos especiais.">
+    <meta name="keywords" content="restaurante italiano, comida italiana, pizza, massas, Sapore & Memoria, gastronomia">
+    <meta name="author" content="Sapore & Memoria">
+    
+    <!-- Essas tags são pra quando compartilham o site nas redes sociais -->
+    <meta property="og:title" content="Sapore & Memoria - Restaurante Familiar">
+    <meta property="og:description" content="Descubra os sabores autênticos da cozinha ítalo-brasileira no coração da cidade.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saporememoria.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Aqui linkamos o arquivo CSS que deixa o site bonitinho -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Esse é o ícone que aparece na aba do navegador - coloquei um emoji de macarrão -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍝</text></svg>">
+</head>
+
+<body>
+    <!-- Aqui começa o cabeçalho do site, com o logo e o menu de navegação -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">Sapore & Memoria</a> <!-- Logo do restaurante -->
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="cardapio.html">Cardápio Completo</a></li> <!-- LINK NOVO AQUI -->
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Aqui é o conteúdo principal do site -->
+    <main class="main-content">
+        <div class="container layout-container">
+            <div class="content-area">
+                <!-- Primeira seção: Sobre o restaurante -->
+                <section id="sobre" class="content-section">
+                    <h2>Sapore & Memoria</h2>
+                    <p>
+                        A Cantina "Sapore & Memoria" é um tradicional restaurante de cozinha ítalo-brasileira, fundado em 1983 no coração de um bairro familiar. Conhecido por sua atmosfera acolhedora e pratos que evocam nostalgia, o restaurante se tornou uma verdadeira instituição local, resistindo ao tempo e às tendências gastronômicas passageiras ao se manter fiel à sua essência: comida farta, saborosa e feita com amor.
+                    </p>
+                    <p>
+                        Entrar na "Sapore & Memoria" é como fazer uma viagem no tempo. A decoração mantém o charme rústico original: toalhas de mesa xadrez vermelhas e brancas, garrafas de vinho Chianti penduradas como decoração e paredes repletas de fotografias em preto e branco que contam a história do restaurante, dos seus fundadores e dos clientes fiéis ao longo das décadas. O ambiente é sempre preenchido pelo som de conversas animadas e pelo cheiro inconfundível de alho, manjericão e molho fresco.
+                    </p>
+                    
+                    <h3>Nossos diferenciais:</h3>
+                    <ul>
+                        <li><strong>Venha conhecer:</strong> Venha nos conhecer e entender melhor como funcionamos.</li>
+                        <li><strong>Desde 1983:</strong> Estamos presentes no mercado desde 1983 construindo relações com nossos clientes.</li>
+                        <li><strong>Qualidade:</strong> A qualidade é o nosso maior compromisso.</li>
+                        <li><strong>Tempo de espera:</strong> Nossos motoboys contratados são rápidos e cuidadosos com seu pedido.</li>
+                        <li><strong>Ingredientes:</strong> Uso de ingredientes de primeira é o nosso diferencial.</li>
+                    </ul>
+                </section>
+
+                <!-- Segunda seção: Cardápio com vários pratos -->
+                <section id="cardapio" class="content-section">
+                    <h2>Nosso Cardápio</h2>
+                    
+                    <!-- Cada "article" é um card de prato do cardápio -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pizza Margherita tradicional com queijo derretido e manjericão fresco" class="card-image">
+                        <div class="card-content">
+                            <h3>Pizzas Artesanais</h3>
+                            <p>Nossas pizzas são preparadas com massa fermentada naturalmente por 48 horas, molho de tomate caseiro e ingredientes selecionados. Experimente a clássica Margherita ou a especial da casa.</p>
+                            <a href="#" class="card-button">Ver Opções</a> <!-- Botão que levaria pra página com todas as pizzas -->
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Espaguete à carbonara cremoso com bacon crocante e queijo parmesão" class="card-image">
+                        <div class="card-content">
+                            <h3>Massas Frescas</h3>
+                            <p>Massas caseiras preparadas diariamente. Desde o clássico spaghetti alla carbonara até nossas lasanhas de forno, cada prato é uma experiência única de sabores autênticos.</p>
+                            <a href="#" class="card-button">Ver Opções</a>
+                        </div>
+                    </article>
+                    
+                    <!-- E assim vai... tem vários cards mostrando diferentes categorias do cardápio -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Risotto cremoso com cogumelos silvestres e ervas frescas" class="card-image">
+                        <div class="card-content">
+                            <h3>Pratos Principais</h3>
+                            <p>Risotos cremosos, carnes selecionadas e peixes frescos. Nossos pratos principais são preparados com técnicas tradicionais e toque especial do nosso chef.</p>
+                            <a href="#" class="card-button">Ver Opções</a>
+                        </div>
+                    </article>
