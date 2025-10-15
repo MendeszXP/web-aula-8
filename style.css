@@ -1,0 +1,552 @@
+:root {
+  /* -- PALETA DE CORES -- */
+  /* As variáveis são definidas com '--' no início. Elas tornam a manutenção do design muito mais fácil. */
+  --primary-color: #005f73;       /* Cor primária, usada para elementos importantes como botões e títulos. */
+  --secondary-color: #0a9396;     /* Cor secundária, para links e destaques. */
+  --background-color: #f4f4f9;    /* Cor de fundo principal da página. */
+  --surface-color: #ffffff;       /* Cor de fundo para "superfícies" como cards e seções. */
+  --text-color: #333333;          /* Cor padrão para o texto do corpo. */
+  --heading-color: #003440;      /* Cor para os títulos (h1, h2, etc.), um tom mais escuro da cor primária. */
+  --accent-color: #ee9b00;        /* Cor de destaque, para efeitos :hover e chamadas de ação. */
+
+  /* -- TIPOGRAFIA -- */
+  --font-family-base: 'Arial', sans-serif;           /* Fonte principal para o texto, com fontes de fallback. */
+  --font-family-headings: 'Georgia', serif;          /* Fonte para os títulos, para criar contraste visual. */
+
+  /* -- OUTRAS VARIÁVEIS -- */
+  --border-radius-base: 8px;                         /* Raio de borda padrão para arredondar cantos. */
+  --box-shadow-base: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra padrão para dar profundidade aos elementos. */
+}
+
+/*
+  -- RESET BÁSICO --
+  O seletor universal (*) seleciona TODOS os elementos.
+  '::before' e '::after' são pseudo-elementos.
+  Aplicar estas regras a todos garante um comportamento de layout consistente.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* A propriedade mais importante do reset. Padding e Border não aumentam mais a largura/altura final do elemento. */
+  margin: 0;              /* Remove todas as margens padrão do navegador. */
+  padding: 0;             /* Remove todos os paddings padrão do navegador. */
+}
+
+/* -- ESTILOS GLOBAIS PARA O BODY -- */
+body {
+  font-family: var(--font-family-base); /* Usa a variável de fonte definida no :root. */
+  line-height: 1.6;                     /* Define a altura da linha para 160% do tamanho da fonte, melhorando a legibilidade. */
+  background-color: var(--background-color); /* Usa a variável de cor de fundo. */
+  color: var(--text-color);             /* Usa a variável de cor de texto. */
+}
+
+/* -- CONTÊINER GENÉRICO -- */
+/* Esta classe é usada várias vezes no HTML para centralizar o conteúdo. */
+.container {
+  max-width: 1100px;      /* Define uma largura máxima para o contêiner. */
+  margin-left: auto;      /* Com 'margin-right: auto', centraliza o contêiner horizontalmente. */
+  margin-right: auto;
+  padding-left: 20px;     /* Adiciona um espaçamento nas laterais para o conteúdo não colar nas bordas da tela. */
+  padding-right: 20px;
+}
+
+/* -- ESTILOS GLOBAIS PARA TÍTULOS -- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-headings); /* Usa a fonte especial para títulos. */
+  color: var(--heading-color);              /* Usa a cor especial para títulos. */
+  margin-bottom: 0.75em;                    /* Adiciona um espaço abaixo dos títulos (relativo ao seu tamanho). */
+  line-height: 1.2;                         /* Altura de linha um pouco mais justa para títulos. */
+}
+
+/* -- ESTILOS GLOBAIS PARA LINKS -- */
+a {
+  color: var(--secondary-color); /* Cor padrão para links. */
+  text-decoration: none;         /* Remove o sublinhado padrão dos links. */
+  transition: color 0.3s ease;   /* Adiciona uma transição suave na mudança de cor. */
+}
+
+a:hover {
+  color: var(--accent-color);    /* Muda a cor do link ao passar o mouse. */
+  text-decoration: underline;    /* Adiciona um sublinhado ao passar o mouse para indicar que é clicável. */
+}
+
+/* -- ESTILOS GLOBAIS PARA IMAGENS -- */
+img {
+  max-width: 100%;  /* Garante que a imagem nunca ultrapasse a largura de seu contêiner. */
+  height: auto;     /* Mantém a proporção da imagem ao redimensionar a largura. */
+  display: block;   /* Remove o pequeno espaço extra que os navegadores às vezes adicionam abaixo das imagens. */
+}
+
+
+/* ----------------------------------------------------------------
+  2. LAYOUT PRINCIPAL E CABEÇALHO
+  ----------------------------------------------------------------
+*/
+
+/* -- ESTILO DO CABEÇALHO -- */
+.site-header {
+  background-color: var(--surface-color);   /* Fundo branco. */
+  padding: 1rem 0;                          /* 1rem de padding vertical, 0 horizontal. */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);  /* Sombra sutil para destacar do conteúdo. */
+  position: sticky;                         /* Faz o cabeçalho "grudar" no topo da tela ao rolar a página. */
+  top: 0;                                   /* Define a posição em que ele deve grudar. */
+  z-index: 1000;                            /* Garante que o cabeçalho fique na frente de outros elementos da página. */
+}
+
+/* Flexbox para alinhar o logo e a navegação dentro do cabeçalho. */
+.site-header .container {
+  display: flex;                    /* Ativa o Flexbox. */
+  justify-content: space-between; /* Coloca o máximo de espaço possível entre os itens (logo na esquerda, nav na direita). */
+  align-items: center;              /* Alinha verticalmente os itens no centro. */
+}
+
+.logo a {
+  font-size: 1.5rem;          /* Tamanho da fonte do logo. */
+  font-weight: bold;          /* Deixa o texto em negrito. */
+  color: var(--primary-color);/* Cor do logo. */
+  text-decoration: none;      /* Garante que não haja sublinhado. */
+}
+
+/* -- ESTILO DA NAVEGAÇÃO PRINCIPAL -- */
+.main-nav ul {
+  list-style: none; /* Remove os marcadores de bolinha da lista. */
+  display: flex;    /* Alinha os itens do menu horizontalmente. */
+  gap: 25px;        /* Cria um espaçamento de 25px entre cada item do menu. */
+}
+
+.main-nav a {
+  font-weight: bold;                 /* Texto em negrito. */
+  padding: 5px 10px;                 /* Espaçamento interno para aumentar a área clicável. */
+  border-radius: 5px;                /* Cantos levemente arredondados. */
+  transition: background-color 0.3s ease; /* Transição suave na cor de fundo. */
+}
+
+.main-nav a:hover {
+  background-color: var(--background-color); /* Muda a cor de fundo ao passar o mouse. */
+  text-decoration: none;                     /* Garante que não apareça sublinhado no hover. */
+}
+
+/* -- LAYOUT PRINCIPAL (CONTEÚDO + SIDEBAR) -- */
+.layout-container {
+  display: flex;                  /* Ativa o Flexbox. */
+  flex-direction: column;         /* Empilha os itens verticalmente (padrão mobile-first). */
+  gap: 30px;                      /* Espaço entre a área de conteúdo e a sidebar. */
+  margin-top: 30px;               /* Espaço acima do layout. */
+  margin-bottom: 30px;            /* Espaço abaixo do layout. */
+}
+
+.content-area {
+  flex: 3; /* Define que a área de conteúdo deve tentar ocupar 3 partes do espaço disponível. */
+}
+
+.sidebar {
+  flex: 1; /* Define que a sidebar deve tentar ocupar 1 parte do espaço disponível. */
+}
+
+/* -- ESTILO GENÉRICO DAS SEÇÕES DE CONTEÚDO -- */
+.content-section {
+  background-color: var(--surface-color); /* Fundo branco. */
+  padding: 25px;                          /* Espaçamento interno generoso. */
+  border-radius: var(--border-radius-base); /* Cantos arredondados. */
+  box-shadow: var(--box-shadow-base);     /* Sombra para profundidade. */
+  margin-bottom: 30px;                    /* Espaço entre as seções. */
+}
+
+
+/* ----------------------------------------------------------------
+  3. ESTILOS DE COMPONENTES (CARDS, FORMULÁRIO, WIDGETS)
+  ----------------------------------------------------------------
+*/
+
+/* -- ESTILO DOS CARDS DE ARTIGOS -- */
+.card {
+  border-radius: var(--border-radius-base); /* Cantos arredondados. */
+  overflow: hidden;                         /* Garante que a imagem não "vaze" das bordas arredondadas. */
+  box-shadow: var(--box-shadow-base);       /* Sombra. */
+  margin-bottom: 25px;                      /* Espaço abaixo de cada card. */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Anima a transformação e a sombra. */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Move o card 5px para cima no hover. */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Aumenta a intensidade da sombra no hover. */
+}
+
+.card-image {
+  width: 100%; /* Garante que a imagem preencha a largura do card. */
+}
+
+.card-content {
+  padding: 20px; /* Espaçamento interno do conteúdo do card. */
+}
+
+.card-button {
+  display: inline-block;          /* Permite definir padding e margin, mas se comporta como texto. */
+  background-color: var(--secondary-color); /* Cor de fundo do botão. */
+  color: white;                   /* Cor do texto do botão. */
+  padding: 10px 20px;             /* Espaçamento interno do botão. */
+  border-radius: 5px;             /* Cantos arredondados do botão. */
+  margin-top: 15px;               /* Espaço acima do botão. */
+  font-weight: bold;              /* Texto em negrito. */
+}
+
+.card-button:hover {
+  background-color: var(--accent-color); /* Muda a cor de fundo no hover. */
+  color: white;                          /* Mantém o texto branco. */
+  text-decoration: none;                 /* Sem sublinhado. */
+}
+
+/* -- ESTILOS DO FORMULÁRIO DE CONTATO -- */
+.contact-form {
+  display: grid; /* Usa CSS Grid para layout do formulário, ideal para alinhamento em duas dimensões. */
+  gap: 20px;     /* Espaço entre os campos do formulário. */
+}
+
+.form-group {
+  display: flex;          /* Usa Flexbox para os grupos de label/input. */
+  flex-direction: column; /* Empilha o label sobre o input. */
+}
+
+.contact-form label {
+  font-weight: bold; /* Deixa o texto do label em negrito. */
+  margin-bottom: 5px;/* Espaço entre o label e o campo de entrada. */
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;                          /* Faz os campos ocuparem toda a largura disponível. */
+  padding: 12px;                        /* Espaçamento interno para conforto visual e digitação. */
+  border: 1px solid #ccc;               /* Borda sutil. */
+  border-radius: 5px;                   /* Cantos arredondados. */
+  font-family: var(--font-family-base); /* Garante que a fonte seja a mesma do resto do site. */
+}
+
+/* Estilo de :focus para dar feedback visual ao usuário quando ele clica em um campo. */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none; /* Remove a borda de foco padrão do navegador. */
+  border-color: var(--primary-color); /* Adiciona uma borda colorida personalizada. */
+  box-shadow: 0 0 5px rgba(0, 95, 115, 0.5); /* Adiciona uma sombra suave para destaque. */
+}
+
+.submit-button {
+  background-color: var(--primary-color); /* Cor de fundo. */
+  color: white;                           /* Cor do texto. */
+  padding: 15px;                          /* Espaçamento interno generoso. */
+  border: none;                           /* Remove a borda padrão do botão. */
+  border-radius: 5px;                     /* Cantos arredondados. */
+  font-size: 1rem;                        /* Tamanho da fonte. */
+  font-weight: bold;                      /* Texto em negrito. */
+  cursor: pointer;                        /* Muda o cursor para uma mãozinha, indicando que é clicável. */
+  transition: background-color 0.3s ease; /* Transição suave na cor de fundo. */
+}
+
+.submit-button:hover {
+  background-color: var(--heading-color); /* Escurece o botão no hover. */
+}
+
+
+/* -- ESTILOS DA SIDEBAR E WIDGETS -- */
+.widget {
+  background-color: var(--surface-color); /* Fundo branco. */
+  padding: 20px;                          /* Espaçamento interno. */
+  border-radius: var(--border-radius-base); /* Cantos arredondados. */
+  box-shadow: var(--box-shadow-base);     /* Sombra. */
+  margin-bottom: 25px;                    /* Espaço entre widgets. */
+}
+
+.widget-title {
+  border-bottom: 2px solid var(--secondary-color); /* Linha decorativa abaixo do título do widget. */
+  padding-bottom: 10px;                            /* Espaço entre o texto e a linha. */
+  margin-bottom: 15px;                             /* Espaço abaixo da linha. */
+}
+
+.widget ul {
+  list-style: none; /* Remove marcadores da lista. */
+}
+
+.widget ul li {
+  margin-bottom: 10px; /* Espaço entre os itens da lista. */
+}
+
+.tags-container {
+  display: flex;     /* Alinha as tags lado a lado. */
+  flex-wrap: wrap;   /* Permite que as tags quebrem para a próxima linha. */
+  gap: 8px;          /* Espaço entre as tags. */
+}
+
+.tag {
+  background-color: var(--background-color); /* Fundo sutil. */
+  color: var(--secondary-color);             /* Cor do texto da tag. */
+  padding: 5px 12px;                         /* Espaçamento interno. */
+  border-radius: 15px;                       /* Bordas bem arredondadas para parecer uma "pílula". */
+  font-size: 0.85rem;                        /* Tamanho de fonte menor. */
+  font-weight: bold;                         /* Texto em negrito. */
+}
+
+
+/* ----------------------------------------------------------------
+  4. DEMONSTRAÇÃO FLEXBOX (ESTILOS DAS CAIXAS)
+  ----------------------------------------------------------------
+*/
+
+.box-container {
+    display: flex;                    /* Ativa o Flexbox. */
+    flex-wrap: wrap;                  /* Permite a quebra de linha. */
+    justify-content: space-evenly;  /* Distribui os itens uniformemente, com espaço nas bordas. */
+    align-items: flex-start;          /* Alinha os itens no topo de sua linha. */
+    align-content: flex-start;        /* Alinha as linhas no topo do contêiner. */
+    row-gap: 25px;                    /* Espaço vertical entre as linhas. */
+    column-gap: 15px;                 /* Espaço horizontal entre as colunas. */
+    margin-top: 30px;                 /* Espaço acima do contêiner. */
+    background-color: #e9e9e9;        /* Fundo para visualizar a área do contêiner. */
+    min-height: 500px;                /* Altura mínima para demonstrar melhor o align-content. */
+    padding: 20px;                    /* Espaçamento interno. */
+    border-radius: var(--border-radius-base); /* Cantos arredondados. */
+}
+
+/* -- Estilo BASE para TODAS as caixas -- */
+.box {
+    flex-grow: 1;           /* Permite que a caixa cresça para ocupar espaço vago. */
+    flex-shrink: 1;         /* Permite que a caixa encolha se não houver espaço. */
+    flex-basis: 100px;      /* Define o tamanho inicial da caixa. */
+    height: 60px;           /* Altura fixa. */
+    background-color: #f0f0f0; /* Cor de fundo base. */
+    border: 2px solid #ccc; /* Borda base. */
+    display: flex;          /* Ativa Flexbox DENTRO da caixa para centralizar o texto. */
+    align-items: center;    /* Centraliza o texto verticalmente. */
+    justify-content: center;/* Centraliza o texto horizontalmente. */
+    font-weight: bold;      /* Texto em negrito. */
+    color: #333;            /* Cor do texto. */
+    transition: all 0.3s ease; /* Anima TODAS as propriedades que mudarem. */
+}
+
+/* Seleciona todas as caixas em posições ÍMPARES (1, 3, 5...) */
+.box:nth-child(odd) {
+    background-color: #e0f7fa;
+    border-color: #00796b;
+    border-radius: 8px;
+    align-self: flex-end; /* Sobrescreve o alinhamento do contêiner, alinhando esta caixa na base da linha. */
+}
+
+/* Seleciona todas as caixas em posições PARES (2, 4, 6...) */
+.box:nth-child(even) {
+    background-color: #fff9c4;
+    border-color: #fbc02d;
+    border-style: dashed;
+    border-radius: 50%; /* Transforma a caixa em um círculo/elipse. */
+}
+
+/* Seleciona a CADA 3 caixas (3, 6, 9...) */
+.box:nth-child(3n) {
+    background-color: #ffcdd2;
+    color: #c62828;
+    height: 80px;
+    border: 4px solid #c62828;
+    align-self: center; /* Centraliza esta caixa verticalmente na linha. */
+}
+
+/* Seleciona APENAS a PRIMEIRA caixa */
+.box:first-child {
+    background-color: #c8e6c9;
+    border: 4px solid #2e7d32;
+    padding: 30px;
+    order: 2;         /* Muda a ordem visual. A caixa 1 aparecerá depois das caixas com order 0 ou 1. */
+    flex-grow: 2;     /* Faz esta caixa crescer o dobro das outras. */
+}
+
+/* Seleciona APENAS a ÚLTIMA caixa */
+.box:last-child {
+    background-color: #d1c4e9;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: #4527a0;
+    order: -1;        /* Move esta caixa para o início da ordem visual. */
+    flex-shrink: 0;   /* Impede que esta caixa encolha. */
+}
+
+.box:hover {
+    transform: translateY(-5px) scale(1.1); /* Move para cima e aumenta o tamanho. */
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    z-index: 10; /* Garante que a caixa em foco fique na frente das outras. */
+}
+
+/* Seleciona a sétima caixa para um estilo específico. */
+.box:nth-child(7) {
+  align-self: stretch; /* Faz a caixa se esticar para preencher a altura da linha. */
+}
+
+
+/* ----------------------------------------------------------------
+  5. RODAPÉ
+  ----------------------------------------------------------------
+*/
+.site-footer {
+  background-color: var(--heading-color); /* Fundo escuro. */
+  color: #e0e0e0;                         /* Texto claro para contraste. */
+  text-align: center;                     /* Centraliza o texto do copyright. */
+  padding-top: 2rem;                      /* Espaçamento interno no topo. */
+  margin-top: 30px;                       /* Espaço acima do rodapé. */
+}
+
+/* Layout flexbox para as colunas do rodapé. */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas pequenas. */
+    justify-content: space-between; /* Espaça as colunas. */
+    gap: 20px;
+    padding-bottom: 2rem; /* Espaço abaixo das colunas. */
+    text-align: left; /* Alinha o texto das colunas à esquerda. */
+}
+
+.footer-col {
+    flex: 1; /* Permite que as colunas cresçam e ocupem o espaço. */
+    min-width: 200px; /* Largura mínima para evitar que fiquem muito espremidas. */
+}
+
+.footer-col h4 {
+    color: white; /* Cor dos títulos das colunas. */
+}
+
+.footer-col ul {
+    list-style: none; /* Remove marcadores. */
+}
+
+.footer-col a {
+    color: #e0e0e0; /* Cor dos links do rodapé. */
+}
+
+.footer-bottom {
+    border-top: 1px solid #4a5a60; /* Linha separadora. */
+    padding: 1rem 0;               /* Espaçamento vertical. */
+}
+
+
+/* ----------------------------------------------------------------
+  6. MEDIA QUERIES PARA RESPONSIVIDADE
+  ----------------------------------------------------------------
+  Media queries aplicam estilos apenas quando certas condições são atendidas (como a largura da tela).
+  A abordagem é "Mobile First": os estilos padrão são para celulares, e as media queries adicionam
+  estilos para telas maiores.
+*/
+
+/* Para tablets e telas maiores (a partir de 768 pixels de largura). */
+@media (min-width: 768px) {
+  .layout-container {
+    flex-direction: row; /* O layout principal muda de coluna para linha (conteúdo ao lado da sidebar). */
+  }
+
+  /* Organiza os artigos em um grid de 2 colunas. */
+  #artigos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de fração igual. */
+    gap: 25px;
+  }
+}
+
+/* Para desktops (a partir de 1024 pixels de largura). */
+@media (min-width: 1024px) {
+  /* Organiza os artigos em um grid de 3 colunas em telas grandes. */
+  #artigos {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/* Cole isso no final do seu style.css */
+
+/* Estilos para o Cardápio Completo */
+.full-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.menu-item-detail {
+    background: var(--surface-color);
+    border-radius: var(--border-radius-base);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-base);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.menu-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.menu-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.serving, .spicy {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .full-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .menu-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
